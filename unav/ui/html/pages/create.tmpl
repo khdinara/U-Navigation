@@ -1,0 +1,31 @@
+{{define "title"}}Write a New Article{{end}}
+{{define "main"}}
+
+<form action='/snippet/create' method='POST'>
+<!-- Include the CSRF token -->
+<input type='hidden' name='csrf_token' value='{{.CSRFToken}}'>
+<div class="register">
+<div style="margin-left: 10%; margin-right: 10%;">
+<h2>New Article</h2>
+<p>Please fill in this form to create an article.</p>
+<hr style="margin-left:0; width:100%; height:3px; border-width:0; color:grey; background-color:grey"><br>
+<label>Title:</label>
+{{with .Form.FieldErrors.title}}
+<label class='error'>{{.}}</label>
+{{end}}
+<input class= "input_reg" placeholder="Title" type='text' name='title' value='{{.Form.Title}}' required> <br><br>
+<label>Content:</label>
+{{with .Form.FieldErrors.content}}
+<label class='error'>{{.}}</label>
+{{end}}
+<textarea class="input_reg" placeholder ="Content" required name='content'>{{.Form.Content}}</textarea><br><br>
+{{with .Form.FieldErrors.expires}}
+<label class='error'>{{.}}</label>
+{{end}}
+</div>
+<hr style="margin-left:0; width:100%; height:3px; border-width:0; color:grey; background-color:grey"><br>
+<div>
+<input class="typeB" type='submit' value='Publish Article'>
+</div>
+</form>
+{{end}}

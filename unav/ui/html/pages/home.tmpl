@@ -1,0 +1,128 @@
+{{define "title"}}Home{{end}}
+{{define "main"}}
+
+<head>
+    <title>Unavigation</title>
+    <link rel='shortcut icon' href='/static/img/logo1.png' type='image/png' >
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css' integrity='sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn' crossorigin='anonymous'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css' />
+    <link rel='stylesheet' href='/static/css/main1.css'>
+    <style>
+        .table-sortable tr:nth-child(even){background-color: #ffde59;}
+        .table-sortable tr:hover {background-color: rgb(135, 132, 132);}
+    </style>
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<script src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js' integrity='sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2' crossorigin='anonymous'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+
+<img  src="/static/img/1.png" class="d-block w-100" width = 100% alt="slogan about motivation">
+
+<div id = "mainWord">
+    <div id = "aboutUS">
+    <p style="font-size:30px">
+        <b >OUR MISSION</b>
+    </p>
+    </div>
+
+    <div>
+    <p style="font-size:600px">
+    <center><h2 style="padding-bottom:5%" class="yellowUnderline">to help with  right choice  university</h2></center>
+
+    </div>
+</div>
+
+
+<center>
+<div class="container" style = "width: 40%;">
+    <div class="row">
+        <div class="col-sm">
+
+            <i class="fas fa-check fa-3x" style="color: #ffde59; margin-left: 50%;"></i>
+        </div>
+        <div class="col-sm">
+            <i class="fas fa-check fa-3x" style="color: #ffde59;margin-left: 50%;"></i>
+        </div>
+        <div class="col-sm">
+
+            <i class="fas fa-check fa-3x" style="color: #ffde59;margin-left: 50%;"></i>
+        </div>
+    </div>
+</div>
+
+<div class="container" style = "width: 40%;">
+    <div class="row">
+        <div class="col-sm">
+            <h3 style="text-align: center;" class="yellowUnderline">Relevance</h3>
+            <p style="text-align: center;">
+                Factors describe university ranking, reputation, potential outcomes
+                and benefits for students, as well as geographical location and costs for student
+            </p>
+        </div>
+        <div class="col-sm">
+            <h3 style="text-align: center;" class="yellowUnderline">Idea</h3>
+            <p style="text-align: center;">
+                Institutional factors describe university ranking, reputation, potential outcomes and
+                benefits for students, as well as geographical location and costs for student
+            </p>
+        </div>
+        <div class="col-sm">
+            <h3 style="text-align: center;" class="yellowUnderline">Purpose</h3>
+            <p style="text-align: center;">
+                Whether you're a school leaver or a mature student, university opens up
+                a host of new opportunities and lets you take control of your future.
+            </p>
+        </div>
+    </div>
+</div>
+</center>
+
+    <div class="pictureInMain">
+        <img src="/static/img/readingBook.png" width = 60%>
+        <div class="textAboutCh">
+            <h4 style ="text-decoration: underline; text-decoration-color:#ffde59; text-decoration-thickness: 3px;">The choice</h4>
+            <div class = "theChoiceText">
+            <p>The choice of an institution of higher learning such as a university is significant
+                in the lives of a student because it shapes the future of the student. It is therefore
+                important that the choice is made carefully and after considering all factors.</p>
+            </div>
+        </div>
+    </div>
+
+<h2>Latest Articles About Universities</h2>
+
+{{if .Snippets}}
+
+{{if .Snippets}}
+<div class="container-table">
+
+	<div class="table">
+		<div class="table-header">
+			<div class="header__item"><a id="number" class="filter__link">#</a></div>
+			<div class="header__item"><a id="article_title" class="filter__link filter__link--number">Title</a></div>
+			<div class="header__item"><a id="article_date" class="filter__link filter__link--number">Date</a></div>
+		</div>
+		 {{range .Snippets}}
+		<div class="table-content">
+			<div class="table-row">
+				<div class="table-data">{{.ID}}</div>
+				<div class="table-data"><a href='/snippet/view/{{.ID}}'>{{.Title}}</a></div>
+				<div class="table-data">{{humanDate .Created}}</div>
+			</div>
+		</div>
+		{{end}}
+	</div>
+</div>
+
+{{else}}
+<p>There's nothing to see here... yet!</p>
+
+{{end}}
+{{end}}
+{{end}}
